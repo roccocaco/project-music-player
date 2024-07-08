@@ -9,24 +9,29 @@
   </head>
 
   <body>
+    <audio src="" id="audio"></audio>
+
     <div class="music-player">
-      <h1 class="music-name">song one</h1>
-      <p class="artist-name">artist</p>
+      <h1 class="music-name">all at once</h1>
+      <p class="artist-name">Whitney Houston</p>
 
       <div class="disk"></div>
+
       <div class="song-slider">
         <input type="range" value="0" class="seek-bar" />
         <span class="current-time">00:00</span>
         <span class="song-duration">00:12</span>
       </div>
-    </div>
 
-    <div class="controls">
-      <button class="play-btn">
-        <span></span>
-        <span></span>
-      </button>
+      <div class="controls">
+        <button class="btn backward-btn"><img src="" alt="" /></button>
+        <button class="play-btn">
+          <span class="play-btn pause"></span>
+          <span></span>
+        </button>
+        <button class="btn forward-btn"><img src="" alt="" /></button>
+      </div>
     </div>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
