@@ -77,7 +77,6 @@ body {
 }
 
 .seek-bar {
-  -webkit-appearance: none;
   width: 100%;
   height: 5px;
   border-radius: 10px;
@@ -90,6 +89,7 @@ body {
   -webkit-appearance: none;
   width: 1px;
   height: 20px;
+  background: #000;
   box-shadow: -400px 0 0 400px #d5eebb;
 }
 
@@ -123,7 +123,7 @@ body {
 }
 
 .play-btn span {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 25%;
   transform: translateY(-50%);
@@ -188,6 +188,6 @@ body {
   }
 
   100% {
-    transform: rotate(360);
+    transform: rotate(360deg);
   }
 }
