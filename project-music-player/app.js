@@ -1,4 +1,4 @@
-let currectMusic = 0;
+let currentMusic = 0;
 
 const music = document.querySelector("#audio");
 
@@ -7,7 +7,7 @@ const songName = document.querySelector(".music-name");
 const artistName = document.querySelector(".artist-name");
 const disk = document.querySelector(".disk");
 const currentTime = document.querySelector(".current-time");
-const musicDuration = document.querySelector(".music-duration");
+const musicDuration = document.querySelector(".song-duration");
 const playBtn = document.querySelector(".play-btn");
 const forwardBtn = document.querySelector(".forward-btn");
 const backwardBtn = document.querySelector(".backward-btn");
@@ -26,12 +26,12 @@ playBtn.addEventListener("click", () => {
 
 const setMusic = (i) => {
   seekBar.value = 0;
-  let song = song[i];
+  let song = songs[i];
   currentMusic = i;
   music.src = song.path;
 
-  songName.inner = song.name;
-  artistName.inner = song.name;
+  songName.innerHTML = song.name;
+  artistName.innerHTML = song.artist;
   disk.style.backgroundImage = `url('${song.cover}')`;
 
   currentTime.innerHTML = "00:00";
@@ -46,7 +46,7 @@ setMusic(0);
 const formatTime = (time) => {
   let min = Math.floor(time / 60);
   if (min < 10) {
-    min - `0${min}`;
+    min = `0${min}`;
   }
   let sec = Math.floor(time % 60);
   if (sec < 10) {
@@ -58,7 +58,7 @@ const formatTime = (time) => {
 setInterval(() => {
   seekBar.value = music.currentTime;
   currentTime.innerHTML = formatTime(music.currentTime);
-  if(Math.floor(music.currentTime) == Math.floor(seekBar.max))
+  if (Math.floor(music.currentTime) == Math.floor(seekBar.max))
     forwardBtn.click();
 }, 500);
 
@@ -73,20 +73,21 @@ const playMusic = () => {
 };
 
 forwardBtn.addEventListener("click", () => {
-  if (currentMusic > -songs.length - 1) {
+  if (currentMusic >= songs.length - 1) {
     currentMusic = 0;
   } else {
     currentMusic++;
   }
+  setMusic(currentMusic);
+  playMusic();
 });
 
 backwardBtn.addEventListener("click", () => {
   if (currentMusic <= 0) {
-    currectMusic = songs.length - 1;
+    currentMusic = songs.length - 1;
   } else {
     currentMusic--;
   }
-  setMusic(currectMusic);
-  playBtn();
+  setMusic(currentMusic);
+  playMusic();
 });
-

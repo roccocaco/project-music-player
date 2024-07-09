@@ -3,7 +3,7 @@ let songs = [
     name: "you give good love",
     path: "",
     artist: "Whitney Houston",
-    cover: "img",
+    img
   },
   {
     name: "thinking about you",
